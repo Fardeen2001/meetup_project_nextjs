@@ -12,6 +12,7 @@ const MeetupDetails = (props) => {
           src={props.details.image}
           alt={props.details.title}
           quality={100}
+          priority="false"
         />
       </div>
       <div className={classes.content}>

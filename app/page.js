@@ -17,6 +17,13 @@ const Dummy = [
     address: "taj mahal,agra",
   },
 ];
-export default function Home() {
-  return <MeetupList meetups={Dummy} />;
+const Meetups = async () => {
+  const res = await Dummy;
+  return res;
+};
+async function Home(props) {
+  const meetups = await Meetups();
+  return <MeetupList meetups={meetups} />;
 }
+
+export default Home;

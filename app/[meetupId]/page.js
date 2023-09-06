@@ -1,5 +1,6 @@
 import MeetupDetails from "@/components/meetups/MeetupDetails";
 import image from "../../public/tajmahal.jpg";
+import { notFound } from "next/navigation";
 const Dummy = [
   {
     id: "m1",
@@ -16,9 +17,22 @@ const Dummy = [
     description: "our second meetup",
   },
 ];
-const Details = ({ params }) => {
+const fetch = async () => {
+  const res = Dummy;
+  return res;
+};
+
+export async function generateStaticParams() {
+  return [{ id: "m1" }, { id: "m2" }, { id: "m3" }];
+}
+const Details = async ({ params }) => {
+  const products = await fetch();
   const id = params.meetupId;
-  const det = Dummy.find((item) => item.id === id);
+  const det = products.find((item) => item.id === id);
+  if (!det) {
+    notFound();
+  }
+
   return <MeetupDetails details={det} />;
 };
 
