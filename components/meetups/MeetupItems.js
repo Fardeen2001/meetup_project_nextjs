@@ -12,8 +12,9 @@ function MeetupItem(props) {
             src={props.image}
             alt={props.title}
             quality={100}
-            placeholder="blur"
             priority="false"
+            width={900000000}
+            height={90000000}
           />
         </div>
         <div className={classes.content}>

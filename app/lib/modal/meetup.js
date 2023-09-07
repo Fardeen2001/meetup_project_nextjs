@@ -7,4 +7,4 @@ const meetupsModel = new mongoose.Schema({
   description: String,
 });
 export const Meetup =
-  mongoose.models.meetups || mongoose.model("meetups", meetupsModel);
+  mongoose.models.meetup || mongoose.model("meetup", meetupsModel);

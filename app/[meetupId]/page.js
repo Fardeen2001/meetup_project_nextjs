@@ -1,34 +1,25 @@
 import MeetupDetails from "@/components/meetups/MeetupDetails";
-import image from "../../public/tajmahal.jpg";
+
 import { notFound } from "next/navigation";
-const Dummy = [
-  {
-    id: "m1",
-    title: "First meetup",
-    image: image,
-    address: "taj mahal,agra",
-    description: "our first meetup",
-  },
-  {
-    id: "m2",
-    title: "Second meetup",
-    image: image,
-    address: "taj mahal,agra",
-    description: "our second meetup",
-  },
-];
-const fetch = async () => {
-  const res = Dummy;
-  return res;
+
+const FetchData = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/meetups", {
+      cache: "no-cache",
+    });
+    if (!res.ok) {
+      throw new Error("invalid fetch");
+    }
+    return await res.json();
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-export async function generateStaticParams() {
-  return [{ id: "m1" }, { id: "m2" }, { id: "m3" }];
-}
 const Details = async ({ params }) => {
-  const products = await fetch();
+  const products = await FetchData();
   const id = params.meetupId;
-  const det = products.find((item) => item.id === id);
+  const det = products.result.find((item) => item._id === id);
   if (!det) {
     notFound();
   }

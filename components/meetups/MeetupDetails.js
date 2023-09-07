@@ -13,6 +13,8 @@ const MeetupDetails = (props) => {
           alt={props.details.title}
           quality={100}
           priority="false"
+          width={90000000}
+          height={9000000}
         />
       </div>
       <div className={classes.content}>
