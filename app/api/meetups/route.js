@@ -23,10 +23,11 @@ export async function POST(req) {
 }
 
 export async function GET(request) {
+  let result = [];
   const client = await MongoClient.connect(connectionStr);
   const db = client.db();
   const meetupsCollection = db.collection("meet");
-  const result = await meetupsCollection.find().toArray();
+  result = await meetupsCollection.find().toArray();
   client.close();
 
   return NextResponse.json({ result }, { status: 201 });

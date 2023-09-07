@@ -1,5 +1,5 @@
 import MeetupDetails from "@/components/meetups/MeetupDetails";
-import { Metadata } from "next";
+
 import { notFound } from "next/navigation";
 
 const FetchData = async () => {
@@ -26,7 +26,7 @@ const Details = async ({ params }) => {
 
   return <MeetupDetails details={det} />;
 };
-export async function generateMetadata({ params }) {
+async function generateMetadata({ params }) {
   const product = await FetchData();
 
   const id = params.meetupId;

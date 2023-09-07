@@ -1,4 +1,3 @@
-"use client";
 import NewMeetupForm from "@/components/meetups/NewMeetupForm";
 import { useRouter } from "next/navigation";
 
