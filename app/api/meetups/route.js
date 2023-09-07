@@ -27,6 +27,7 @@ export async function GET(request) {
   const db = client.db();
   const meetupsCollection = db.collection("meet");
   const result = await meetupsCollection.find().toArray();
+  client.close();
 
   return NextResponse.json({ result }, { status: 201 });
 }

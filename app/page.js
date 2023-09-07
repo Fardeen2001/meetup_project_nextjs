@@ -15,7 +15,7 @@ const Meetups = async () => {
 };
 async function Home(props) {
   const meetups = await Meetups();
-  console.log(meetups);
+
   return <MeetupList meetups={meetups.result} />;
 }
 

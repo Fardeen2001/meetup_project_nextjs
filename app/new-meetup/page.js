@@ -2,6 +2,11 @@
 import NewMeetupForm from "@/components/meetups/NewMeetupForm";
 import { useRouter } from "next/navigation";
 
+export const metadata = {
+  title: "Add a new meetup",
+  description:
+    "Add your own meetups and create ammazing networking opportunities",
+};
 const NewMeetupPage = () => {
   const router = useRouter();
   const newMeetupHandeler = async (enteredMeetupData) => {
